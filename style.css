@@ -24,6 +24,7 @@ html {
     max-width: 1400px;
     margin: auto;
     background-color: black;
+    box-shadow: 0 0 30px black;
 }
 
 /* HERO */
@@ -107,6 +108,15 @@ html {
     grid-template-columns: auto auto;
 }
 
+.quote::before {
+    font-size: 100px;
+    content: '\201c';
+    color: #b8916d;
+    padding-right: 20px;
+    translate: 0 -30px;
+    margin-bottom: -30px;
+}
+
 .quote .quote-text {
     font-family: 'Gelasio', serif;
     font-weight: lighter;
@@ -118,21 +128,15 @@ html {
     font-family: 'Gelasio', serif;
     font-weight: lighter;
     font-size: 18px;
+    font-weight: bold;
     text-align: right;
     grid-column-start: 1;
     grid-column-end: 3;
 }
 
-.quote::before {
-    font-size: 100px;
-    content: '\201c';
-    color: #b8916d;
-    padding-right: 20px;
-    translate: 0 -30px;
-    margin-bottom: -30px;
+.quote-person::before {
+    content: '\2014\0020';
 }
-
-
 
 .top-of-image {
     background-color: rgba(0, 0, 0, .6);
