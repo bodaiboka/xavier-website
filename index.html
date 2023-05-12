@@ -45,6 +45,9 @@
             <h2>Opera Singer</h2>
             <h1>Xavier Rivadeneira</h1>
             <button class="hero-button">MY LIFE STORY<i class="bi bi-chevron-right"></i></button>
+        </div>
+
+        <div class="bar">
             <div class="navbar">
                 <div class="nav-icon-wrapper">
                     <div class="icon nav-icon">
@@ -62,7 +65,6 @@
                     <hr>
                     <div class="navbar-menu-item">Contact</div>
                 </div>
-                
             </div>
         </div>
 
@@ -159,7 +161,7 @@
             $navIcon = $(".nav-icon");
             $navbar = $(".navbar")
             $siteWrapper = $(".site-wrapper");
-
+            
             $navIcon.on("click", (event) => {
                 $navIcon.toggleClass("open");
                 $navbar.toggleClass("open");
@@ -248,7 +250,21 @@
                         "scale": "1",
                         "z-index": "0"
                     } );
-            })
+            });
+
+            const bar = document.querySelector(".bar")
+            const observer = new IntersectionObserver( 
+                ([e]) => {
+                    console.log("pinned");
+                    $(".nav-icon-wrapper").toggleClass("is-pinned", e.intersectionRatio < 1);
+                },
+                { threshold: [1] }
+            );
+
+            observer.observe(bar);
+
+            
+
 
         })
     </script>
