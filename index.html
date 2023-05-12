@@ -21,6 +21,18 @@
 <body>
 
     <div class="site-background"></div>
+    
+    <div class="hide-site"></div>
+
+    <div class="video-dialog">
+        <div class="video-player">
+            <div class="video-menu">
+                <h1>Tosca - E lucevan le stelle</h1>
+                <i class="bi bi-x-lg"></i>
+            </div>
+            <iframe src="https://www.youtube.com/embed/ud_d8iKt6NE" title="YouTube video player" autoplay="1" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
 
     <div class="site-wrapper">
         <div class="hero">
@@ -28,6 +40,8 @@
             <h1>Xavier Rivadeneira</h1>
             <button>MY LIFE STORY<i class="bi bi-chevron-right"></i></button>
         </div>
+
+        <!-- INTRODUCTION -->
     
         <div class="intro">
             <div class="intro-image">
@@ -45,6 +59,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- VIDEOS -->
 
         <div class="videos">
             <h1>Videos</h1>
@@ -71,6 +87,14 @@
                 </div>
             </div>
         </div>
+
+        <!-- STORY -->
+
+        <div class="story">
+            <h1>My Story</h1>
+
+        </div>
+
     </div>
     
     
@@ -85,6 +109,14 @@
             $storyButton = $(".hero button");
             $hero = $(".hero");
             $video = $(".video");
+            $videoDialog = $(".video-dialog");
+            $videoPlayer = $(".video-player");
+            $hideSite = $(".hide-site");
+            $closeVideo = $(".bi-x-lg");
+
+            $videoDialog.css({
+                "display": "none"
+            });
 
             const checkQuotes = () => {
                 if ($introText.offset().top == $introImage.offset().top) {
@@ -108,9 +140,28 @@
             
             $(window).on('resize', (event) => {
                 checkQuotes();
-            })
+            });
 
             let _videoTimeout;
+
+            $video.on("click", (event) => {
+                $hideSite.css({
+                    "opacity": ".8"
+                });
+                $videoDialog.show(500, () => {
+                    $videoDialog.css({
+                        "display": "flex"
+                    });
+                });
+            });
+
+            $closeVideo.on("click", (event) => {
+                $hideSite.css({
+                    "opacity": "0"
+                });
+                $videoDialog.hide(500);
+            });
+
 
             $video.hover(
                 function(event) { 
