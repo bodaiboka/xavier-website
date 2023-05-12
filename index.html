@@ -114,9 +114,15 @@
 
             $video.hover(
                 function(event) { 
+                    $(event.target).css({
+                        "opacity": "1"
+                    })
                     $(event.target).children(".video-title").css({
                         "translate": "0 0"
                     });
+                    $(event.target).children("i").css({
+                        "opacity": "1"
+                    })
                     _videoTimeout = setTimeout(() => {
                         $(event.target).css({
                         "scale": "1.2",
@@ -127,6 +133,12 @@
                 },
                 function(event) {
                     clearTimeout(_videoTimeout);
+                    $(event.target).css({
+                        "opacity": "0.8"
+                    })
+                    $(event.target).children("i").css({
+                        "opacity": "0.4"
+                    })
                     $(event.target).children(".video-title").css({
                         "translate": "0 100px"
                     });
