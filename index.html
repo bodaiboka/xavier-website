@@ -36,10 +36,34 @@
 
     <div class="site-wrapper">
 
+        
+        
+
+        <!-- HERO -->
+
         <div class="hero">
             <h2>Opera Singer</h2>
             <h1>Xavier Rivadeneira</h1>
             <button class="hero-button">MY LIFE STORY<i class="bi bi-chevron-right"></i></button>
+            <div class="navbar">
+                <div class="nav-icon-wrapper">
+                    <div class="icon nav-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div> 
+                </div>
+                <div class="navbar-menu">
+                    <div class="navbar-menu-item">My Life Story</div>
+                    <hr>
+                    <div class="navbar-menu-item">Videos</div>
+                    <hr>
+                    <div class="navbar-menu-item">Events</div>
+                    <hr>
+                    <div class="navbar-menu-item">Contact</div>
+                </div>
+                
+            </div>
         </div>
 
         <!-- INTRODUCTION -->
@@ -93,7 +117,7 @@
 
         <div class="story">
             <div class="story-text">
-                <h1>My Story</h1>
+                <h1>My Life Story</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, nostrum dignissimos nisi nesciunt natus minima quis consectetur unde! Deserunt aliquam maiores nam reprehenderit numquam. Id voluptate excepturi adipisci, placeat vel eveniet vero et quia impedit doloribus molestias nostrum deleniti corporis architecto consectetur quidem asperiores, eius enim necessitatibus facilis? Repellat ipsam nisi quisquam vero expedita provident dicta, quidem ea pariatur excepturi odit nemo ad voluptatum cum tenetur dignissimos deleniti porro? Distinctio veritatis delectus ut pariatur cupiditate sint eos eligendi? Delectus ipsum, illum consectetur deserunt itaque vero voluptate accusantium quod sit eius qui? Accusantium, quasi!</p>
                 <br>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem veniam voluptas inventore laborum nostrum. Provident labore officia voluptatibus veniam consequatur, neque eveniet ipsum accusantium nulla omnis consectetur eum, voluptatem magnam illum quas quisquam. Dolorem, iste illum corporis sapiente, expedita eaque asperiores, assumenda unde provident molestias quis illo quaerat necessitatibus aperiam. Hic explicabo, consequatur tempora asperiores iusto delectus maxime molestias officiis optio illum! Beatae, autem nulla illo omnis perspiciatis, optio enim eos odit culpa laboriosam facilis fuga vitae? Tempora, nulla optio?</p>
@@ -103,17 +127,16 @@
         <!-- FOOTER -->
 
         <div class="footer">
+            <div class="footer-empty"></div>
+            <div class="footer-copy">
+                <p>© 2023 Xavier Rivadeneira</p>
+            </div>
             <div class="footer-contact">
                 <i class="bi bi-facebook"></i>
                 <i class="bi bi-instagram"></i>
                 <i class="bi bi-youtube"></i>
                 <i class="bi bi-envelope-at"></i>
             </div>
-            <hr>
-            <div class="footer-copy">
-                <p>© 2023 Xavier Rivadeneira</p>
-            </div>
-            
         </div>
 
     </div>
@@ -133,6 +156,14 @@
             $videoPlayer = $(".video-player");
             $hideSite = $(".hide-site");
             $closeVideo = $(".bi-x-lg");
+            $navIcon = $(".nav-icon");
+            $navbar = $(".navbar")
+            $siteWrapper = $(".site-wrapper");
+
+            $navIcon.on("click", (event) => {
+                $navIcon.toggleClass("open");
+                $navbar.toggleClass("open");
+            })
 
             $videoDialog.css({
                 "display": "none"
