@@ -173,6 +173,8 @@
             $navIcon = $(".nav-icon");
             $navbar = $(".navbar")
             $siteWrapper = $(".site-wrapper");
+            $videos = $(".videos-container");
+            $videosButton = $(".videos-button-holder button");
             
             $navIcon.on("click", (event) => {
                 $navIcon.toggleClass("open");
@@ -274,6 +276,17 @@
             );
 
             observer.observe(bar);
+
+            $videos.hover(() => {
+                $videosButton.css({
+                    "opacity": "1"
+                });
+            }, () => {
+                $videosButton.css({
+                    "opacity": "0"
+                });
+            })
+
         })
     </script>
     
