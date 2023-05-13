@@ -196,6 +196,7 @@ body {
 .videos {
     background: linear-gradient(0deg, rgb(12, 12, 12), rgb(32, 32, 32));
     padding: 50px 0 50px 0;
+    position: relative;
 }
 
 .videos h1 {
@@ -216,11 +217,61 @@ body {
 }
 
 .videos-container {
+    position: relative;
+    width: 100%;
+}
+
+.videos-list {
     display: flex;
     flex-wrap: nowrap;
     gap: 14px;
     padding: 24px 0 24px 50px;
     overflow: hidden;
+}
+
+.videos-button-holder {
+    height: 100%;
+    width: 80px;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+}
+
+.videos-button-holder button {
+    background-color: transparent;
+    height: 200px;
+    width: 100%;
+    color: #fefefe;
+    font-size: 32px;
+    border: none;
+    cursor: pointer;
+    transition: all .25s;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.videos-button-holder button:hover {
+    font-size: 48px;
+}
+
+.videos-container .next {
+    right: 0
+} 
+
+.videos-container .prev {
+    left: 0;
+}
+
+.videos-container .next button  {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.videos-container .prev button  {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .video {
@@ -272,6 +323,7 @@ body {
 .v1 {
     background-image: url(resources/image/cover3.jpg);
     background-size: cover;
+    transform-origin: left;
 }
 
 .v2 {
