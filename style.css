@@ -224,14 +224,14 @@ body {
 .videos-list {
     display: flex;
     flex-wrap: nowrap;
-    gap: 14px;
-    padding: 24px 0 24px 50px;
+    gap: 5px;
+    padding: 24px 0 24px 0px;
     overflow: hidden;
 }
 
 .videos-button-holder {
     height: 100%;
-    width: 80px;
+    width: 45px;
     position: absolute;
     top: 0;
     display: flex;
@@ -276,36 +276,55 @@ body {
 }
 
 .video {
+    flex: 1 0 auto;
     z-index: 0;
-    flex: 0 0 300px;
-    height: 200px;
+    height: fit-content;
     transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
     cursor: pointer;
-    border-radius: 5px;
-    position: relative;
     overflow: hidden;
     opacity: .8;
+    display: table;
+    translate: 50px 0;
+    position: relative;
+}
+
+.video:nth-child(4n) {
+    transform-origin: right;
+}
+
+.video:nth-child(4n+1) {
+    transform-origin: left;
+}
+.no-shrink {
+
 }
 
 .video:hover {
-    box-shadow: 5px 5px 20px black;
+    /* box-shadow: 5px 5px 20px black; */
 }
 
+.video img {
+    object-fit: cover;
+    width: 200px; /* will be modified by jquery */
+    pointer-events: none;
+    border-radius: 5px;
+}
 
 .video i {
-    display: table;
+    display: flex;
+    vertical-align: middle;
     margin: auto;
     height: 100%;
+    width: 100%;
     color: white;
     font-size: 60px;
     pointer-events: none;
     opacity: .4;
     transition: all .8s;
-}
-
-.video i::before {
-    display: table-cell;
-    vertical-align: middle;
+    position: absolute;
+    top: 0;
+    justify-content: center;
+    align-items: center;
 }
 
 .video-title {
@@ -330,21 +349,25 @@ body {
 .v2 {
     background-image: url(resources/image/cover4.jpg);
     background-size: cover;
+    translate: -100px 0;
 }
 
 .v3 {
     background-image: url(resources/image/cover5.jpg);
     background-size: cover;
+    translate: -100px 0;
 }
 
 .v4 {
     background-image: url(resources/image/cover6.jpg);
     background-size: cover;
+    translate: -100px 0;
 }
 
 .v5 {
     background-image: url(resources/image/cover7.jpg);
     background-size: cover;
+    translate: -100px 0;
 }
 
 .v6 {
