@@ -218,14 +218,15 @@
                     });
                     $quoteOnImage.css({
                         "display": "none"
-                    })
+                    });
                 } else {
                     $quoteNormal.css({
                         "display": "none"
                     });
                     $quoteOnImage.css({
                         "display": "grid"
-                    }) 
+                    }); 
+                    $(".intro-image").toggleClass("intro-image-wrap", $introText.offset().top != $introImage.offset().top);
                 }
             }
             
