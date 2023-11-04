@@ -531,13 +531,16 @@ body {
 
 .navbar-menu {
     visibility: visible;
-    box-shadow: 0 0 20px black;
     width: 380px;
     background-color: #b8916d;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.navbar-menu.open {
+    box-shadow: 0 0 20px black;
 }
 
 .navbar-menu-item {

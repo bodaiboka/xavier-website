@@ -195,7 +195,8 @@
             $hideSite = $(".hide-site");
             $closeVideo = $(".bi-x-lg");
             $navIcon = $(".nav-icon");
-            $navbar = $(".navbar")
+            $navbar = $(".navbar");
+            $navMenu = $(".navbar-menu");
             $siteWrapper = $(".site-wrapper");
             $videos = $(".videos-container");
             $videosButton = $(".videos-button-holder button");
@@ -205,6 +206,7 @@
             $navIcon.on("click", (event) => {
                 $navIcon.toggleClass("open");
                 $navbar.toggleClass("open");
+                $navMenu.toggleClass("open");
             })
 
             $videoDialog.css({
