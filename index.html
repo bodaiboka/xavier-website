@@ -202,7 +202,25 @@
             $videosButton = $(".videos-button-holder button");
             $videoButtonNext = $(".videos-button-holder.next button");
             $videoButtonPrev = $(".videos-button-holder.prev button");
-            
+
+            totalVideos = 8;
+            currentVideosPage = 0;
+            videosPerPage = 4;
+            totalPages = totalVideos/videosPerPage;
+
+            function calcVideoTileSizes() {
+                console.log($(window).width());
+                currentVideosPage = 0;
+                $(".video img").css({
+                    "width": `${($videos.width() - (90 + (videosPerPage+1)*5)) / videosPerPage}px`,
+                })
+                $video.css({
+                        "translate": "55px 0"
+                        /*"translate": `${translate*($(".video img").width() + 5) + 50}px 0`*/
+                    });
+                $videosButton.height($video.height());
+            }
+
             $navIcon.on("click", (event) => {
                 $navIcon.toggleClass("open");
                 $navbar.toggleClass("open");
@@ -212,6 +230,8 @@
             $videoDialog.css({
                 "display": "none"
             });
+
+            
 
             const checkQuotes = () => {
                 if ($introText.offset().top == $introImage.offset().top) {
@@ -231,11 +251,29 @@
                     $(".intro-image").toggleClass("intro-image-wrap", $introText.offset().top != $introImage.offset().top);
                 }
             }
+
+            const setVideosPages = () => {
+                w = $(window).width();
+                videosPerPage = 4;
+                if (w < 1100) {
+                    videosPerPage = 3;
+                }
+                if (w < 800) {
+                    videosPerPage = 2;
+                }
+                if (w < 500) {
+                    videosPerPage = 1;
+                }
+                totalPages = totalVideos/videosPerPage;
+            }
             
             checkQuotes();
             
             $(window).on('resize', (event) => {
+                currentVideosPage = 0;
+                translate = 0;
                 checkQuotes();
+                setVideosPages();
             });
 
             let _videoTimeout;
@@ -318,28 +356,30 @@
 
             let translate = 0;
 
-            $(window).resize(() => {
-                $(".video img").css({
-                    "width": `${($videos.width() - 115) / 4}px`,
-                })
-                $video.css({
-                        "translate": `${translate * ($(".video img").width() + 5) + 50}px 0`
-                    });
-                    $videosButton.height($video.height());
-            })
+            
+
+            $(window).on('resize', calcVideoTileSizes)
 
             $videoButtonNext.on("click", () => {
-                translate -= 4;
-                $video.css({
-                    "translate": `${translate * ($video.width() + 5) + 50}px 0`
-                })
+                if (currentVideosPage < totalPages-1) {
+                    currentVideosPage++;
+                    translate -= videosPerPage;
+                    $video.css({
+                        "translate": `${translate * ($video.width() + 5) + 50}px 0`
+                    })
+                }
             });
             $videoButtonPrev.on("click", () => {
-                translate += 4;
-                $video.css({
-                    "translate": `${translate * ($video.width() + 5) + 50}px 0`
-                })
+                if (currentVideosPage > 0) {
+                    currentVideosPage--;
+                    translate += videosPerPage;
+                    $video.css({
+                        "translate": `${translate * ($video.width() + 5) + 50}px 0`
+                    })
+                }
             });
+
+            calcVideoTileSizes();
 
         })
     </script>
